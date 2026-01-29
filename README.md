@@ -11,9 +11,12 @@ mamba env create -f environment.yml
 Rscript install.r
 ```
 
+Next create a `config.env` file based on the `config-template.env` template.
+
 ## To run
 
+You can run the entire pipeline using 
+
 ```
-bash download-data.sh
-Rscript download-pan-cancer-clinical.r
+bash run-all.sh
 ```
