@@ -11,7 +11,8 @@ install.packages(c(
     "readxl",
     "here",
     "rmarkdown",
-    "IRkernel"
+    "IRkernel",
+    "codetools"
 ))
 
 # Install specific version of meffonym package from GitHub
