@@ -20,6 +20,8 @@ library(ggplot2)
 library(ggrepel)
 library(meffonym)
 library(here)
+library(gt)
+library(gtsummary)
 
 # Read environment file
 readRenviron(here("scripts/config.env"))
@@ -42,6 +44,38 @@ protein.names <- subset(meffonym::meffonym.models(full = T),
 protein.names <- make.names(protein.names)
 
 table(protein.names %in% colnames(data))
+```
+
+# Sample metadata
+```{r}
+#| label: tbl-summary
+
+# Summary table
+t1 <- tbl_summary(select(data, 
+                         c(female, 
+                           histology, 
+                           age.at.diagnosis,
+                           ethnicity,
+                           race,
+                           stage,
+                           tumor.or.normal)), 
+                  missing = "no",
+                  label = list(
+                    female = "Female",
+                    histology = "Histology",
+                    age.at.diagnosis = "Age at diagnosis",
+                    ethnicity = "Ethnicity",
+                    race = "Race",
+                    stage = "Stage"), 
+                  by = tumor.or.normal) |> 
+  modify_caption("**Table 1: Cohort Characteristics**") |>
+  bold_labels() |>
+  as_gt() |>
+  gt::cols_width(
+    label ~ gt::px(250),    # Set first column to 250px
+    everything() ~ gt::px(150))  # Set other columns to 150px
+
+t1
 ```
 
 # Analysis

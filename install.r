@@ -12,7 +12,9 @@ install.packages(c(
     "here",
     "rmarkdown",
     "IRkernel",
-    "codetools"
+    "codetools",
+    "gt",
+    "gtsummary"
 ))
 
 # Install specific version of meffonym package from GitHub
