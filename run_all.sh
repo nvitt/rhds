@@ -17,3 +17,4 @@ Rscript clean-clinical.r $datadir $resultsdir
 Rscript predict-proteins.r $datadir $resultsdir
 Rscript combine.r $datadir $resultsdir
 Rscript analysis.r $datadir $resultsdir
+jupyter nbconvert --execute --to html --output-dir $docsdir initial-analysis.ipynb
