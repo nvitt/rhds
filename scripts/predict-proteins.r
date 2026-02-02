@@ -1,16 +1,14 @@
 ## -------------------------------------------- ##
 ## predict-proteins.r
 ## -------------------------------------------- ##
+
+library(rhds.rpackage)
 library(meffonym)
 
 args <- commandArgs(trailingOnly = T)
 datadir <- args[1]
 resultsdir <- args[2]
 
-my.write.table <- function(x, filename) {
-  cat("saving", basename(filename), "...\n")
-  write.table(x, file = filename, row.names = T, col.names = T, sep = "\t")
-}
 
 
 methylation.file <- file.path(datadir, "methylation-clean-score-sites.csv.gz")
