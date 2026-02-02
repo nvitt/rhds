@@ -20,3 +20,6 @@ You can run the entire pipeline using
 ```
 bash run-all.sh
 ```
+
+## Code review
+Have addressed a practice issue.
