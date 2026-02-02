@@ -14,11 +14,15 @@ install.packages(c(
     "IRkernel",
     "codetools",
     "gt",
-    "gtsummary"
+    "gtsummary",
+    "devtools"
 ))
 
 # Install specific version of meffonym package from GitHub
 remotes::install_github("perishky/meffonym@9faface")
+
+# Install RHDS package from GitHub:
+remotes::install_github("nvitt/rhds.rpackage@v0.1.0")
 
 # Register R kernel with Jupyter
 IRkernel::installspec(name = "rhds_r", displayname = "R (rhds)")
