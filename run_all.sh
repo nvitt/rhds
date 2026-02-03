@@ -1,5 +1,7 @@
 #!/bin/bash
 
+cd scripts
+
 # Get project variables
 source config.env
 
@@ -9,7 +11,6 @@ mkdir -p $resultsdir
 mkdir -p $datadir
 
 # Run all scripts
-cd scripts
 bash download-data.sh $datadir $resultsdir
 Rscript download-pan-cancer-clinical.r $datadir $resultsdir
 Rscript extract-data.r $datadir $resultsdir
@@ -18,3 +19,4 @@ Rscript predict-proteins.r $datadir $resultsdir
 Rscript combine.r $datadir $resultsdir
 Rscript analysis.r $datadir $resultsdir
 jupyter nbconvert --execute --to html --output-dir $docsdir initial-analysis.ipynb
+quarto render analysis.qmd --output-dir $docsdir
