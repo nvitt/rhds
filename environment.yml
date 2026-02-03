@@ -1,7 +1,9 @@
 name: rhds
 channels:
+  - bioconda
   - conda-forge
 dependencies:
+  - conda-forge::python-dotenv
   - r-base=4.5.2
+  - bioconda::snakemake
 
-prefix: "/users/home/user36/miniforge3/envs/rhds"
