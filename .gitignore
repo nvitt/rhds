@@ -5,3 +5,4 @@
 config.env
 scripts/analysis_cache/
 scripts/analysis_files/
+*.sif
