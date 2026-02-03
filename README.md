@@ -18,8 +18,24 @@ Next create a `config.env` file based on the `config-template.env` template.
 You can run the entire pipeline using 
 
 ```
-bash run_all.sh
+bash run-all.sh
 ```
 
-## Code review
-Have addressed a practice issue.
+Note, to run within a container, first create an image file (`rhds-tcga-r.sif`) from the definition file (`rhds-tcga-r.def`):
+
+```
+apptainer build rhds-tcga-r.sif rhds-tcga-r.def
+```
+
+Then use it to run the scripts e.g.
+
+```
+source scripts/config.env
+mkdir -p ${datadir} ${resultsdir} ${docsdir}
+apptainer run \
+    --fakeroot \
+    -B $(pwd) \
+    -B ${datadir} -B ${resultsdir} -B ${docsdir} \
+    rhds-tcga-r.sif \
+    bash run-all.sh
+```
