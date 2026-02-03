@@ -1,6 +1,7 @@
 *.zip
 *.tar.gz
 *.xlsx
+*.pdf
 config.env
 scripts/analysis_cache/
 scripts/analysis_files/
