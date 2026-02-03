@@ -18,7 +18,7 @@ Next create a `config.env` file based on the `config-template.env` template.
 You can run the entire pipeline using 
 
 ```
-bash run-all.sh
+bash run_all.sh
 ```
 
 ## Code review
