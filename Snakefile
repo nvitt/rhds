@@ -12,9 +12,16 @@ onstart:
 
 rule all:
     input:
-        f"{resultsdir}/md5sums.txt"
+        f"{resultsdir}/md5sums.txt",
+        f"{docsdir}/analysis.html",
+        f"{docsdir}/initial-analysis.html"
 
 include: "rules/download-data.smk"
+include: "rules/extract-data.smk"
+include: "rules/clean-clinical.smk"
+include: "rules/predict-proteins.smk"
+include: "rules/combine-data.smk"
+include: "rules/analysis.smk"
 
 rule clean:
     "Clean up output directories"

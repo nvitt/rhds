@@ -7,3 +7,4 @@ scripts/analysis_cache/
 scripts/analysis_files/
 .snakemake/
 *.sif
+.cache/

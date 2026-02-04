@@ -30,7 +30,7 @@ apptainer build rhds-tcga-r.sif rhds-tcga-r.def
 Then use it to run the scripts e.g.
 
 ```
-source scripts/config.env
+source config.env
 mkdir -p ${datadir} ${resultsdir} ${docsdir}
 apptainer run \
     --fakeroot \
@@ -38,4 +38,15 @@ apptainer run \
     -B ${datadir} -B ${resultsdir} -B ${docsdir} \
     rhds-tcga-r.sif \
     bash run-all.sh
+```
+
+## Snakemake pipeline
+
+```
+source config.env
+mkdir -p ${docsdir} ${resultsdir} ${datadir}
+snakemake \
+    --cores 1 \
+    --use-apptainer \
+    --apptainer-args "--fakeroot -B ${datadir} -B ${resultsdir} -B ${docsdir} -B $(pwd)"
 ```
